@@ -1,0 +1,307 @@
+Documento de Requisitos del Producto (PRD) - Landing Page IA Retratos
+1. Visión General y Objetivos
+El objetivo de este proyecto es desarrollar una landing page especializada en servicios de edición y generación de retratos mediante inteligencia artificial. La página servirá como punto central para captar clientes nuevos (modelos, actores, influencers, creadores de contenido) que necesitan imágenes profesionales de alta calidad con mayor control, privacidad y eficiencia que las sesiones fotográficas tradicionales.
+Objetivos específicos:
+
+Captar clientes potenciales interesados en retratos IA profesionales
+Comunicar claramente la propuesta de valor de eficiencia, variedad y consistencia
+Convertir visitantes en clientes a través de demostraciones visuales impactantes
+Posicionar el servicio como alternativa premium y discreta a la fotografía tradicional
+
+2. Buyer Persona y Propuesta de Valor
+Audiencia objetivo:
+
+Aspirantes a modelos, actores, influencers
+Creadores de contenido (incluido nicho adulto)
+Profesionales que necesitan imagen personal fuerte
+
+Propuesta de valor:
+
+Eficiencia: Ahorro de tiempo y dinero vs múltiples sesiones fotográficas
+Variedad: Diferentes looks y facetas sin esfuerzo logístico
+Consistencia: Identidad visual reconocible en todas las plataformas
+Privacidad/Control: Proceso discreto con mayor control del resultado final
+
+3. Pila Tecnológica (Tech Stack)
+
+Framework Principal: Astro.js v.5.9
+Componentización: HTML sin frameworks JS, estático con CSS bajo el componente
+Interactividad: Surreal.js para manipulación DOM ligera y "Localidad de Comportamiento"
+Development OS: Windows 11 con Bash-Git shell
+Shell instructions: Usar siempre rutas absolutas con formato slash /
+Comando de desarrollo: npm run dev para localhost
+
+🎯 SECCIONES PRINCIPALES PROPUESTAS
+4. Requisitos Funcionales
+FR-01: Navegación Principal
+
+Barra de navegación sticky con enlaces a secciones principales
+Acceso rápido a: Inicio, Servicios, Galería, Precios, Contacto
+CTA destacado en navbar: "Crear mi retrato"
+
+FR-02: Sección Héroe Interactiva
+
+Headline impactante: "Transforma tu imagen profesional en minutos, no en horas"
+Subheadline: "IA especializada en retratos profesionales para creadores, modelos e influencers"
+CTA principal: "Crear mi primer retrato IA" / "Ver transformación gratis"
+Video/GIF de transformación Before/After en loop
+Social proof: "Más de 1000 creadores confían en nosotros"
+
+FR-03: Galería de Transformaciones
+
+Slider Before/After interactivo con casos reales
+Filtros por nicho: Modelos, Actores, Influencers, Profesionales
+Demo preview: Subir foto y ver ejemplo de transformación
+Casos de uso específicos con métricas de éxito
+
+FR-04: Proceso Simplificado (3 Pasos)
+
+Visualización clara: Sube → Elige → Recibe
+Timeline de entrega con expectativas claras
+Iconografía intuitiva y progreso visual
+
+FR-05: Estructura de Paquetes
+
+Básico "Starter": 5 retratos, 2 estilos, 48h - €97
+Pro "Creator": 15 retratos, 5 estilos, 24h - €197
+Premium "Influencer": 30 retratos, 10 estilos, prioritario - €397
+Comparativa visual de características
+
+FR-06: Elementos de Conversión
+
+Contador de spots disponibles (escasez)
+Testimonios en video de clientes reales
+Garantías: privacidad, satisfacción, revisiones ilimitadas
+Calculadora de ROI vs sesiones tradicionales
+
+FR-07: Formulario de Contacto y Captura
+
+Wizard multi-step optimizado para móvil
+Quiz personalizado: "¿Qué tipo de imagen necesitas?"
+Integración con WhatsApp para consultas rápidas
+Captura de email con lead magnet
+
+5. Requisitos No Funcionales
+NFR-01: Rendimiento
+
+Puntuación Google Lighthouse Performance > 95
+First Contentful Paint < 1.8s
+Imágenes optimizadas con lazy loading
+Minimización de JavaScript del lado cliente
+
+NFR-02: SEO Especializado
+
+Metadatos optimizados para "retratos IA", "fotografía profesional IA"
+Estructura semántica HTML5
+Schema markup para servicios creativos
+Sitemap automático y robots.txt optimizado
+
+NFR-03: Accesibilidad
+
+Cumplimiento WCAG 2.1 nivel AA
+Navegación por teclado completa
+Alt text descriptivo para todas las imágenes
+Contraste adecuado en todos los elementos
+
+NFR-04: Experiencia Móvil
+
+Diseño mobile-first responsive
+Touch-friendly para swipe galleries
+Sticky CTA button siempre visible
+Optimización para one-thumb navigation
+
+NFR-05: Privacidad y Seguridad
+
+Política de privacidad destacada
+Encriptación de formularios
+Comunicación clara sobre eliminación automática de fotos
+Cumplimiento GDPR
+
+6. Elementos Interactivos con Surreal.js
+INT-01: Slider Before/After Interactivo
+
+Implementación con Surreal.js para manipulación DOM nativa
+Drag slider para comparar transformaciones
+Lazy loading de imágenes para performance
+
+INT-02: Calculadora de ROI
+
+Input: Coste sesión fotográfica tradicional
+Output dinámico: Ahorro calculado en tiempo real
+Animaciones suaves en cambios de valores
+
+INT-03: Quiz Personalizado
+
+Multi-step wizard con progress bar
+Lógica condicional para recomendaciones
+Captura de datos progresiva
+
+INT-04: Galería Filtrable
+
+Filtros por categoría (Modelo, Actor, Influencer, etc.)
+Transiciones suaves entre estados
+Contador de resultados dinámico
+
+INT-05: Simulador de Resultado
+
+Preview de transformación con overlay
+Estado de loading elegante
+CTA contextual post-preview
+
+7. Estrategia de Diseño Visual
+Paleta de Colores
+
+Primario: Negro elegante (#000000)
+Secundario: Dorado premium (#FFD700)
+Acento: Blanco puro (#FFFFFF)
+Support: Grises sutiles para texto
+
+Tipografía
+
+Headlines: Sans-serif bold y moderno
+Body: Legible y clean para conversión
+CTAs: Alto contraste y readable
+
+Animaciones (Surreal.js)
+
+Micro-interactions en hover states
+Scroll-triggered animations sutiles
+Loading states elegantes
+Parallax mínimo en hero section
+
+8. Contenido Estratégico
+Casos de Uso Específicos
+
+Modelos: Portfolio diverso sin múltiples sesiones
+Actores: Headshots profesionales para casting
+Influencers: Content variado para redes sociales
+Profesionales: LinkedIn y perfiles corporativos
+Creadores Adultos: Contenido premium discreto
+
+FAQ Estratégico
+
+¿Es legal usar estas imágenes comercialmente?
+¿Qué tan realistas son los resultados?
+¿Cuánto tiempo toma el proceso?
+¿Qué pasa con mi privacidad?
+¿Puedo usar las imágenes en plataformas adultas?
+
+Elementos de Urgencia
+
+Contador de spots disponibles hoy
+Precio Early Bird: "50% OFF primeros 100 clientes"
+Bonus limitado: "Pack extra gratis si ordenas en 24h"
+
+9. Integración y APIs
+Formularios
+
+Procesamiento seguro con validación
+Integración con CRM/Email marketing
+Webhook para notificaciones internas
+
+Chat Bot Inteligente
+
+Asesor virtual con recomendaciones
+Descuentos exclusivos por conversación
+Escalado a WhatsApp para seguimiento
+
+Analytics
+
+Google Analytics 4 con eventos personalizados
+Tracking de conversiones por paquete
+Heatmaps y scroll tracking
+
+10. Deployment y Optimización
+Estrategia de Despliegue
+
+Vercel/Netlify para despliegue continuo
+Preview deployments para testing
+Optimización automática de assets
+
+Monitoring
+
+Core Web Vitals tracking
+Error monitoring y alertas
+Performance budget establecido
+
+11. Criterios de Éxito
+Métricas Primarias
+
+Tasa de conversión > 3%
+Tiempo de permanencia > 2 minutos
+Bounce rate < 60%
+
+Métricas Secundarias
+
+Leads capturados por tráfico orgánico
+Engagement con elementos interactivos
+Comparticiones en redes sociales
+
+Métricas Técnicas
+
+Performance Score > 95
+Accessibility Score > 90
+SEO Score > 85
+
+
+💡 NUBE DE IDEAS ADICIONALES
+Funcionalidades Avanzadas
+
+Realidad Aumentada: "Pruébate virtualmente" diferentes outfits
+Integración Redes Sociales: Auto-post con scheduling
+Content Calendar: Generación automática basada en imágenes
+Engagement Predictor: "Esta imagen tendrá +2000 likes"
+Best Time to Post: Basado en audiencia del usuario
+
+Programa de Referidos
+
+30% comisión por cliente referido
+Dashboard de afiliados integrado
+Materiales de marketing para influencers
+Tracking de conversiones por referido
+
+Modelo de Suscripción
+
+"Retrato del mes": 3 nuevas imágenes mensuales
+Plan influencer: 10 imágenes + 1 consultoría mensual
+Acceso VIP: Priority queue + descuentos exclusivos
+
+Upsells Inteligentes
+
+Pack de redes sociales: Stories, posts, highlights
+Servicio express: Entrega en 6 horas (+€50)
+Revisiones premium: Sesión 1:1 con diseñador
+Pack corporativo: Para agencias/managers
+
+
+📋 ROADMAP DE DESARROLLO
+Fase 1: MVP (Semana 1-2)
+
+Estructura básica con Astro.js
+Hero section con video/GIF loop
+Galería Before/After básica
+Formulario de contacto funcional
+Responsive design básico
+
+Fase 2: Interactividad (Semana 3)
+
+Implementación Surreal.js
+Slider Before/After interactivo
+Calculadora de ROI
+Quiz personalizado básico
+Animaciones y micro-interactions
+
+Fase 3: Conversión (Semana 4)
+
+Sistema de paquetes completo
+Elementos de urgencia y escasez
+Testimonials en video
+Chat bot básico
+Integración analytics
+
+Fase 4: Optimización (Semana 5)
+
+Performance tuning
+SEO avanzado
+A/B testing setup
+Monitoring y alertas

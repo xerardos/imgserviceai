@@ -1,0 +1,96 @@
+---
+// FeatureStyles.astro
+const styles = [
+  {
+    name: 'Cinematográfico',
+    description: 'Iluminación dramática y colores profundos para un look de película.',
+    image: 'https://images.unsplash.com/photo-1504198458649-3128b932f49e?w=800&q=80',
+  },
+  {
+    name: 'Corporativo',
+    description: 'Líneas limpias y un look profesional para tu perfil de LinkedIn o la web de tu empresa.',
+    image: 'https://images.unsplash.com/photo-1556157382-97eda2d62296?w=800&q=80',
+  },
+  {
+    name: 'Vanguardista',
+    description: 'Explora tu lado más creativo con estilos únicos y atrevidos.',
+    image: 'https://images.unsplash.com/photo-1518708909080-704599b19972?w=800&q=80',
+  }
+];
+---
+<section class="styles-section">
+  <h2>Explora los Estilos</h2>
+  <div class="styles-grid">
+    {styles.map(style => (
+      <div class="style-card">
+        <img src={style.image} alt={style.name} />
+        <div class="card-overlay">
+          <h3>{style.name}</h3>
+          <p>{style.description}</p>
+          <a href="/#precios" class="cta-button">Ver Paquetes</a>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .styles-section {
+    padding: 6rem 2rem;
+    text-align: center;
+  }
+  .styles-section h2 {
+    font-size: 2.5rem;
+    color: #FFD700;
+    margin-bottom: 3rem;
+  }
+  .styles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .style-card {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+  .style-card:hover {
+      transform: scale(1.05);
+  }
+  .style-card img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    display: block;
+  }
+  .card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
+    color: white;
+    padding: 4rem 1.5rem 1.5rem 1.5rem;
+    /* Eliminamos la transformación y la transición para que sea siempre visible */
+  }
+  .card-overlay h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .card-overlay p {
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+  }
+  .cta-button {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: #FFD700;
+      color: #000;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: 600;
+  }
+</style>

@@ -1,0 +1,11 @@
+# Task ID: 14
+# Title: Mejorar SEO avanzado
+# Status: done
+# Dependencies: None
+# Priority: high
+# Description: Implementar optimizaciones SEO avanzadas, incluyendo metadatos, schema markup y un sitemap.
+# Details:
+Añadir metadatos relevantes (keywords, open graph) en Layout.astro. Implementar Schema.org markup para 'CreativeWork' o 'Service'. Generar un sitemap.xml, posiblemente usando una integración de Astro.
+
+# Test Strategy:
+Usar validadores online para Schema.org y verificar que el sitemap.xml se genera correctamente.

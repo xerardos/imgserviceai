@@ -1,0 +1,194 @@
+---
+// Hero.astro
+const backgroundImages = [
+  'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=1080&q=80',
+  'https://images.unsplash.com/photo-1573496527892-904f897eb744?w=1080&q=80',
+  'https://images.unsplash.com/photo-1607990283143-e81e7a2c9349?w=1080&q=80',
+  'https://images.unsplash.com/photo-1589386417686-0d34b5903d23?w=1080&q=80',
+  'https://images.unsplash.com/photo-1556157382-97eda2d62296?w=1080&q=80'
+];
+---
+<section class="hero">
+  <div class="hero-background-carousel">
+    {backgroundImages.map((img, index) => (
+      <div class="bg-image" style={`background-image: url(${img}); animation-delay: ${index * 5}s;`}></div>
+    ))}
+  </div>
+  <div class="mouse-light"></div>
+  <div class="hero-content">
+    <h1 class="headline">Transforma tu imagen profesional en minutos, no en horas</h1>
+    <p class="subheadline">IA especializada en retratos profesionales para creadores, modelos e influencers.</p>
+    <div class="cta-buttons">
+      <a href="#precios" class="cta-primary">Crear mi primer retrato IA</a>
+      <a href="#precios" class="cta-secondary">Ver transformación gratis</a>
+    </div>
+    <p class="social-proof">Más de 1000 creadores confían en nosotros</p>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    min-height: 80vh;
+    overflow: hidden;
+    padding: 2rem;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Aumenté el overlay para más contraste */
+    z-index: 2;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 800px;
+  }
+
+  .headline {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    color: #FFD700;
+  }
+
+  .subheadline {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .cta-primary, .cta-secondary {
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.2s ease;
+  }
+
+  .cta-primary {
+    background-color: #FFD700;
+    color: #000000;
+  }
+
+  .cta-secondary {
+    background-color: transparent;
+    color: #FFFFFF;
+    border: 2px solid #FFD700;
+  }
+
+  .cta-primary:hover, .cta-secondary:hover {
+      transform: scale(1.05);
+  }
+
+  .social-proof {
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+
+  @media (max-width: 768px) {
+    .headline {
+      font-size: 2.5rem;
+    }
+    .subheadline {
+      font-size: 1rem;
+    }
+    .cta-buttons {
+      flex-direction: column;
+    }
+  }
+
+  .hero-background-carousel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    animation: imageFade 25s linear infinite; /* 5 images * 5s = 25s total cycle */
+  }
+
+  @keyframes imageFade {
+    0% { opacity: 0; }
+    4% { opacity: 1; } /* Fade in for 1s */
+    20% { opacity: 1; } /* Stay for 4s */
+    24% { opacity: 0; } /* Fade out for 1s */
+    100% { opacity: 0; }
+  }
+
+  .mouse-light {
+    display: none; /* Oculto por defecto */
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.15) 0%, rgba(255, 215, 0, 0) 60%);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    transition: opacity 0.3s;
+  }
+
+  @media (min-width: 1024px) {
+    .hero:hover .mouse-light {
+      display: block; /* Visible en hover en desktop */
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const heroSection = document.querySelector('.hero') as HTMLElement;
+    const light = document.querySelector('.mouse-light') as HTMLElement;
+
+    if (heroSection && light && window.matchMedia('(min-width: 1024px)').matches) {
+      heroSection.addEventListener('mousemove', (e: MouseEvent) => {
+        const rect = heroSection.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        light.style.left = `${x}px`;
+        light.style.top = `${y}px`;
+      });
+
+      heroSection.addEventListener('mouseenter', () => {
+        if (light) light.style.opacity = '1';
+      });
+
+      heroSection.addEventListener('mouseleave', () => {
+        if (light) light.style.opacity = '0';
+      });
+    }
+  });
+</script>

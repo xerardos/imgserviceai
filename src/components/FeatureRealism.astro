@@ -1,0 +1,103 @@
+---
+// FeatureRealism.astro
+const image = {
+    src: 'https://images.unsplash.com/photo-1509305717900-84f40e786d82?w=1080&q=80',
+    alt: 'Primer plano de un rostro mostrando detalles de la piel'
+};
+---
+<section class="feature-section feature-realism">
+  <div class="text-content">
+    <h2>Realismo que Engaña al Ojo.</h2>
+    <p>
+      Cada detalle cuenta. Texturas, iluminación y una calidad de imagen que supera la realidad. 
+      Nuestra IA está entrenada por fotógrafos profesionales para asegurar resultados impecables.
+    </p>
+  </div>
+  <div class="image-content">
+    <img src={image.src} alt={image.alt} width="600" height="800" />
+  </div>
+</section>
+
+<style>
+  .feature-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+    padding: 6rem 2rem;
+    background-color: #000;
+    overflow: hidden;
+  }
+
+  .text-content {
+    padding: 2rem;
+  }
+
+  .text-content h2 {
+    font-size: 3rem;
+    color: #FFD700;
+    margin-bottom: 1.5rem;
+  }
+
+  .image-content img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+
+  @media (max-width: 768px) {
+    .feature-section {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+  }
+</style>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.addEventListener("astro:page-load", () => {
+    // Usamos un selector más específico para no interferir con los otros
+    const section = document.querySelector(".feature-realism");
+    if (!section) return;
+
+    const textContent = section.querySelector(".text-content");
+    const imageContent = section.querySelector(".image-content img");
+
+    // Animación de entrada
+    gsap.from(textContent, {
+      scrollTrigger: {
+        trigger: section,
+        start: "top 80%",
+      },
+      opacity: 0,
+      x: -50,
+      duration: 1,
+    });
+
+    gsap.from(imageContent, {
+      scrollTrigger: {
+        trigger: section,
+        start: "top 80%",
+      },
+      opacity: 0,
+      x: 50,
+      duration: 1,
+    });
+
+    // Efecto Parallax
+    gsap.to(imageContent, {
+      scrollTrigger: {
+        trigger: section,
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true,
+      },
+      y: -100,
+    });
+  });
+</script>

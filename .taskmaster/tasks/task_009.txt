@@ -1,0 +1,11 @@
+# Task ID: 9
+# Title: Desarrollar el quiz personalizado
+# Status: done
+# Dependencies: None
+# Priority: medium
+# Description: Crear un wizard multi-step para guiar al usuario y recomendarle un paquete.
+# Details:
+Crear un componente 'Quiz.astro'. Implementar una lógica de preguntas y respuestas en varios pasos. Usar Surreal.js para manejar los estados y la lógica condicional.
+
+# Test Strategy:
+Verificar que el quiz fluye correctamente a través de los pasos y que la recomendación final es coherente con las respuestas.

@@ -1,0 +1,11 @@
+# Task ID: 17
+# Title: Implementar efecto de luz en Hero
+# Status: done
+# Dependencies: 16
+# Priority: low
+# Description: Añadir un efecto de luz que siga al cursor del ratón sobre la sección Héroe, solo en dispositivos de escritorio.
+# Details:
+Usar JavaScript para rastrear el movimiento del ratón y actualizar la posición de un elemento que simule una luz (ej. con radial-gradient). Añadir una media query o una comprobación en JS para desactivarlo en móviles.
+
+# Test Strategy:
+Verificar que el efecto de luz sigue al cursor en escritorio y que no aparece en la vista móvil.

@@ -1,0 +1,11 @@
+# Task ID: 6
+# Title: Implementar botón flotante de WhatsApp
+# Status: done
+# Dependencies: None
+# Priority: high
+# Description: Añadir un botón flotante en la esquina inferior izquierda que enlace al chat de WhatsApp.
+# Details:
+Crear un componente 'WhatsAppButton.astro'. El botón debe ser un icono de WhatsApp y estar fijo en la esquina inferior izquierda. El enlace debe ser 'https://wa.me/34635929009'.
+
+# Test Strategy:
+Verificar que el botón aparece en todas las páginas, es visible y el enlace funciona correctamente.

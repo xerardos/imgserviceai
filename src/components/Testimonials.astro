@@ -1,0 +1,84 @@
+---
+// Testimonials.astro
+const testimonials = [
+  {
+    quote: "¡Increíble! Obtuve un portfolio completo en días, algo que me habría llevado meses y miles de euros. La calidad es espectacular.",
+    author: "Ana, Modelo",
+    avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80"
+  },
+  {
+    quote: "Como actor, necesito headshots constantemente. Este servicio me ha ahorrado una fortuna y me da la variedad que necesito para cada casting.",
+    author: "Carlos, Actor",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80"
+  },
+  {
+    quote: "La privacidad era clave para mí. El proceso fue súper discreto y los resultados superaron mis expectativas. ¡Totalmente recomendado!",
+    author: "Elena, Creadora de Contenido",
+    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80"
+  }
+];
+---
+
+<section class="testimonials-section">
+  <h2>Lo que dicen nuestros clientes</h2>
+  <div class="testimonials-grid">
+    {testimonials.map(testimonial => (
+      <div class="testimonial-card">
+        <p class="quote">"{testimonial.quote}"</p>
+        <div class="author-info">
+          <img src={testimonial.avatar} alt={`Avatar de ${testimonial.author}`} class="avatar" loading="lazy"/>
+          <p class="author">{testimonial.author}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .testimonials-section {
+    padding: 4rem 2rem;
+    background-color: #13151a;
+    text-align: center;
+  }
+  .testimonials-section h2 {
+    font-size: 2.5rem;
+    color: #FFD700;
+    margin-bottom: 3rem;
+  }
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .testimonial-card {
+    background-color: #000;
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid #444;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .quote {
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+  }
+  .author-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .author {
+    font-weight: 600;
+  }
+</style>

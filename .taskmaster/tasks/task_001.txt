@@ -1,0 +1,11 @@
+# Task ID: 1
+# Title: Configurar estructura básica del proyecto con Astro.js
+# Status: done
+# Dependencies: None
+# Priority: high
+# Description: Crear la estructura de carpetas y archivos inicial para el proyecto Astro.js, incluyendo layouts, componentes y páginas principales.
+# Details:
+Inicializar un nuevo proyecto de Astro. Crear las carpetas 'src/layouts', 'src/components', 'src/pages'. Crear un layout base 'Layout.astro' y una página 'index.astro'.
+
+# Test Strategy:
+Ejecutar 'npm run dev' y verificar que la página de inicio se renderiza sin errores en el navegador.

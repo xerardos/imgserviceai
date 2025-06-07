@@ -1,0 +1,11 @@
+# Task ID: 16
+# Title: Implementar carrusel de imágenes de fondo en Hero
+# Status: done
+# Dependencies: None
+# Priority: high
+# Description: Hacer que la imagen de fondo de la sección Héroe cambie suavemente entre 5 imágenes diferentes cada 5 segundos.
+# Details:
+Buscar 4 imágenes de retratos adicionales. Modificar el componente Hero.astro para implementar una transición suave (fade) entre las 5 imágenes de fondo.
+
+# Test Strategy:
+Verificar que las imágenes rotan cada 5 segundos y que la transición es suave.

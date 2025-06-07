@@ -1,0 +1,117 @@
+---
+// FeatureProcess.astro
+const steps = [
+  {
+    name: '1. Sube tus Fotos',
+    description: 'El primer paso es el más importante. Necesitamos una buena selección de tus fotos para que la IA pueda aprender tus rasgos. Sube entre 10 y 20 imágenes claras, con buena iluminación y desde diferentes ángulos. Evita gafas de sol, sombreros o cualquier cosa que cubra tu rostro.',
+  },
+  {
+    name: '2. Elige tus Estilos',
+    description: 'Navega por nuestra galería de estilos y elige los que mejor se adapten a tu marca personal. Puedes combinar diferentes tipos de ropa, fondos y ambientes.',
+  },
+  {
+    name: '3. Recibe tus Retratos',
+    description: 'En 24-48 horas, recibirás un pack de retratos profesionales en alta resolución, listos para usar en todas tus plataformas.',
+  }
+];
+---
+<section class="process-section">
+  <h2>Un Proceso Sencillo</h2>
+  <div class="process-accordion">
+    {steps.map(step => (
+      <div class="process-step">
+        <button class="step-header">
+          <h3>{step.name}</h3>
+          <span class="arrow-icon"></span>
+        </button>
+        <div class="step-content">
+          <p>{step.description}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .process-section {
+    padding: 6rem 2rem;
+    text-align: center;
+  }
+  .process-section h2 {
+    font-size: 2.5rem;
+    color: #FFD700;
+    margin-bottom: 3rem;
+  }
+  .process-accordion {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+  }
+  .process-step {
+    border-bottom: 1px solid #444;
+  }
+  .step-header {
+    width: 100%;
+    background: none;
+    border: none;
+    color: white;
+    padding: 1.5rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    text-align: left;
+  }
+  .step-header h3 {
+    font-size: 1.5rem;
+  }
+  .arrow-icon {
+    width: 12px;
+    height: 12px;
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
+    transform: rotate(45deg);
+    transition: transform 0.3s ease;
+  }
+  .process-step.is-open .arrow-icon {
+      transform: rotate(225deg);
+  }
+  .step-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+  }
+  .step-content p {
+      padding: 0 0 1.5rem 0;
+  }
+</style>
+
+<script>
+    document.addEventListener('astro:page-load', () => {
+        const steps = document.querySelectorAll('.process-step');
+        steps.forEach(step => {
+            const header = step.querySelector('.step-header');
+            const content = step.querySelector('.step-content') as HTMLElement | null;
+            if (!header || !content) return;
+
+            header.addEventListener('click', () => {
+                const isOpen = step.classList.contains('is-open');
+                
+                // Close all steps
+                steps.forEach(s => {
+                    const otherContent = s.querySelector('.step-content') as HTMLElement | null;
+                    s.classList.remove('is-open');
+                    if (otherContent) {
+                        otherContent.style.maxHeight = '';
+                    }
+                });
+
+                // Open the clicked one if it was closed
+                if (!isOpen) {
+                    step.classList.add('is-open');
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+            });
+        });
+    });
+</script>

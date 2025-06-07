@@ -1,0 +1,11 @@
+# Task ID: 23
+# Title: Rediseñar interacción de la sección 'Explora Estilos'
+# Status: done
+# Dependencies: 21
+# Priority: high
+# Description: Cambiar el efecto de acordeón por un efecto de superposición tipo Netflix al pasar el ratón sobre las tarjetas de estilo.
+# Details:
+Modificar el HTML y CSS de FeatureStyles.astro para que la descripción y el botón aparezcan sobre la imagen en el estado hover. Eliminar el script de JS actual, ya que se puede lograr solo con CSS.
+
+# Test Strategy:
+Verificar que la información aparece suavemente sobre la imagen al pasar el ratón y que el diseño es responsive.

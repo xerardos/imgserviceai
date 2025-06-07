@@ -1,0 +1,129 @@
+---
+// Quiz.astro
+---
+<section class="quiz-section">
+  <h2>¿Qué tipo de imagen necesitas?</h2>
+  <p>Responde unas pocas preguntas para encontrar tu paquete ideal.</p>
+  <div class="quiz-container">
+    <div class="quiz-step active" data-step="1">
+      <h3>Paso 1: ¿Cuál es tu profesión principal?</h3>
+      <div class="quiz-options">
+        <button class="quiz-option" data-next-step="2">Modelo</button>
+        <button class="quiz-option" data-next-step="2">Actor/Actriz</button>
+        <button class="quiz-option" data-next-step="2">Influencer</button>
+        <button class="quiz-option" data-next-step="2">Profesional Corporativo</button>
+      </div>
+    </div>
+    <div class="quiz-step" data-step="2">
+      <h3>Paso 2: ¿Para qué usarás las imágenes?</h3>
+      <div class="quiz-options">
+        <button class="quiz-option" data-next-step="3">Redes Sociales</button>
+        <button class="quiz-option" data-next-step="3">Portfolio/Book</button>
+        <button class="quiz-option" data-next-step="3">Perfil Profesional (LinkedIn)</button>
+        <button class="quiz-option" data-next-step="3">Uso Personal</button>
+      </div>
+    </div>
+    <div class="quiz-step" data-step="3">
+      <h3>Paso 3: ¿Cuánta variedad de estilos necesitas?</h3>
+      <div class="quiz-options">
+        <button class="quiz-option" data-next-step="result">Poca (1-2 estilos)</button>
+        <button class="quiz-option" data-next-step="result">Bastante (3-5 estilos)</button>
+        <button class="quiz-option" data-next-step="result">Mucha (Más de 5 estilos)</button>
+      </div>
+    </div>
+    <div class="quiz-step" data-step="result">
+      <h3>¡Tu paquete recomendado!</h3>
+      <div class="quiz-result">
+        <p>Basado en tus respuestas, te recomendamos el paquete:</p>
+        <h4 class="recommended-package">Paquete Creator</h4>
+        <a href="#" class="cta-primary">Ver Paquetes</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .quiz-section {
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+  .quiz-section h2 {
+    font-size: 2.5rem;
+    color: #FFD700;
+    margin-bottom: 1rem;
+  }
+  .quiz-container {
+    max-width: 700px;
+    margin: 2rem auto;
+    background: #13151a;
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid #444;
+  }
+  .quiz-step {
+    display: none;
+  }
+  .quiz-step.active {
+    display: block;
+  }
+  .quiz-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  .quiz-option {
+    padding: 1rem;
+    border: 2px solid #444;
+    background: transparent;
+    color: white;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .quiz-option:hover {
+    background-color: #FFD700;
+    color: #000;
+    border-color: #FFD700;
+  }
+  .quiz-result {
+      padding: 2rem;
+      border: 2px dashed #FFD700;
+      border-radius: 8px;
+      margin-top: 2rem;
+  }
+  .recommended-package {
+      font-size: 2rem;
+      color: #25d366;
+      margin: 1rem 0;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const quizContainer = document.querySelector('.quiz-container');
+    if (!quizContainer) return;
+
+    const steps = quizContainer.querySelectorAll('.quiz-step');
+    const options = quizContainer.querySelectorAll('.quiz-option');
+
+    function goToStep(stepNumber: string) {
+      steps.forEach(step => {
+        step.classList.remove('active');
+        if (step.getAttribute('data-step') === stepNumber) {
+          step.classList.add('active');
+        }
+      });
+    }
+
+    options.forEach(option => {
+      option.addEventListener('click', () => {
+        const nextStep = option.getAttribute('data-next-step');
+        if (nextStep) {
+          goToStep(nextStep);
+        }
+      });
+    });
+  });
+</script>

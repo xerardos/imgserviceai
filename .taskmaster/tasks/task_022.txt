@@ -1,0 +1,11 @@
+# Task ID: 22
+# Title: Implementar Sección Feature 5: El Proceso Detallado (View Transitions)
+# Status: done
+# Dependencies: None
+# Priority: medium
+# Description: Crear la sección interactiva 'El Proceso Detallado' usando Astro View Transitions.
+# Details:
+
+
+# Test Strategy:
+

@@ -1,0 +1,101 @@
+---
+// ROICalculator.astro
+const ourServiceCost = 197; // Costo del paquete "Creator" como referencia
+---
+
+<section class="roi-calculator-section">
+  <h2>Calcula tu Ahorro</h2>
+  <p>Descubre cuánto puedes ahorrar en tiempo y dinero comparado con sesiones de fotos tradicionales.</p>
+  <div class="calculator">
+    <div class="input-group">
+      <label for="traditional-cost">Coste medio de una sesión tradicional (€)</label>
+      <input type="number" id="traditional-cost" value="500" placeholder="Ej: 500" />
+    </div>
+    <div class="output-group">
+      <h3>Tu ahorro con nosotros:</h3>
+      <p class="savings-amount">€0</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .roi-calculator-section {
+    padding: 4rem 2rem;
+    text-align: center;
+    background-color: #000;
+  }
+
+  .roi-calculator-section h2 {
+    font-size: 2.5rem;
+    color: #FFD700;
+    margin-bottom: 1rem;
+  }
+  
+  .roi-calculator-section p {
+      margin-bottom: 2rem;
+  }
+
+  .calculator {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 2rem;
+    border: 1px solid #444;
+    border-radius: 8px;
+    background-color: #13151a;
+  }
+
+  .input-group {
+    margin-bottom: 2rem;
+  }
+
+  .input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+
+  .input-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 8px;
+    border: 1px solid #444;
+    background-color: #222;
+    color: #fff;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .output-group h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .savings-amount {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #25d366; /* Verde para el ahorro */
+  }
+</style>
+
+<script define:vars={{ ourServiceCost }}>
+  document.addEventListener('DOMContentLoaded', () => {
+    const costInput = document.getElementById('traditional-cost');
+    const savingsOutput = document.querySelector('.savings-amount');
+
+    function calculateSavings() {
+      const traditionalCost = parseFloat(costInput.value) || 0;
+      const savings = traditionalCost - ourServiceCost;
+      
+      if (savings > 0) {
+        savingsOutput.textContent = `€${savings.toFixed(0)}`;
+      } else {
+        savingsOutput.textContent = '€0';
+      }
+    }
+
+    costInput.addEventListener('input', calculateSavings);
+    
+    // Initial calculation
+    calculateSavings();
+  });
+</script>

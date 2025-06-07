@@ -1,0 +1,68 @@
+---
+// Urgency.astro
+---
+<section class="urgency-section">
+  <div class="urgency-content">
+    <h3>¡Oferta por Tiempo Limitado!</h3>
+    <p>
+      Solo quedan <span class="spots-left">10</span> plazas disponibles con un 50% de descuento para los primeros 100 clientes.
+    </p>
+    <a href="#precios" class="cta-primary">¡Aprovechar Oferta!</a>
+  </div>
+</section>
+
+<style>
+  .urgency-section {
+    padding: 2rem;
+    background-color: #FFD700; /* Dorado */
+    color: #000; /* Negro */
+    text-align: center;
+  }
+  .urgency-content h3 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  .urgency-content p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+  .spots-left {
+    font-weight: 700;
+    background-color: #000;
+    color: #FFD700;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+  }
+  .cta-primary {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    background-color: #000;
+    color: #FFD700;
+    border: 2px solid #000;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .cta-primary:hover {
+      background-color: #333;
+  }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const spotsLeftSpan = document.querySelector('.spots-left');
+        if (!spotsLeftSpan) return;
+
+        let spots = 10;
+        
+        const interval = setInterval(() => {
+            spots -= 1;
+            spotsLeftSpan.textContent = spots.toString();
+            if (spots <= 3) {
+                clearInterval(interval);
+            }
+        }, 15000); // Reduce one spot every 15 seconds
+    });
+</script>

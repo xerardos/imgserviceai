@@ -1,0 +1,99 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>{title}</title>
+
+		<!-- SEO Meta Tags -->
+		<meta name="description" content="Servicio de retratos profesionales generados por IA. Ahorra tiempo y dinero con retratos de alta calidad para modelos, actores, influencers y profesionales." />
+		<meta name="keywords" content="retratos IA, fotografía profesional IA, headshots IA, retratos para modelos, retratos para actores, inteligencia artificial fotografía" />
+		
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={Astro.url} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content="Servicio de retratos profesionales generados por IA." />
+		<meta property="og:image" content={new URL('/og-image.jpg', Astro.url)} />
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={Astro.url} />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content="Servicio de retratos profesionales generados por IA." />
+		<meta property="twitter:image" content={new URL('/og-image.jpg', Astro.url)} />
+
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+
+		<!-- Schema.org markup for Google -->
+		<script type="application/ld+json" is:inline>
+		{
+		  "@context": "https://schema.org",
+		  "@type": "Service",
+		  "name": "Retratos Profesionales con IA",
+		  "description": "Generación de retratos profesionales de alta calidad mediante inteligencia artificial para diversos nichos.",
+		  "provider": {
+		    "@type": "Organization",
+		    "name": "Flux"
+		  },
+		  "serviceType": "Fotografía IA",
+		  "areaServed": "Worldwide"
+		}
+		</script>
+
+		<!-- Google Analytics 4 -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX" is:inline></script>
+		<script is:inline>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+		  gtag('config', 'G-XXXXXXXXXX');
+		</script>
+		<ViewTransitions />
+	</head>
+	<body>
+		<slot />
+		<WhatsAppButton />
+	</body>
+</html>
+<style is:global>
+	:root {
+		--accent: 136, 58, 234;
+		--accent-light: 224, 204, 250;
+		--accent-dark: 49, 10, 101;
+		--accent-gradient: linear-gradient(
+			45deg,
+			rgb(var(--accent)),
+			rgb(var(--accent-light)) 30%,
+			white 60%
+		);
+	}
+	html {
+		font-family: system-ui, sans-serif;
+		background: #13151a;
+		background-size: 224px;
+	}
+	code {
+		font-family:
+			Menlo,
+			Monaco,
+			Lucida Console,
+			Liberation Mono,
+			DejaVu Sans Mono,
+			Bitstream Vera Sans Mono,
+			Courier New,
+			monospace;
+	}
+</style>

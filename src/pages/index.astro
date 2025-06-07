@@ -1,0 +1,44 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Gallery from '../components/Gallery.astro';
+import ROICalculator from '../components/ROICalculator.astro';
+import Quiz from '../components/Quiz.astro';
+import Pricing from '../components/Pricing.astro';
+import Urgency from '../components/Urgency.astro';
+import Testimonials from '../components/Testimonials.astro';
+import FeatureControl from '../components/FeatureControl.astro';
+import FeatureVersatility from '../components/FeatureVersatility.astro';
+import FeatureRealism from '../components/FeatureRealism.astro';
+import FeatureStyles from '../components/FeatureStyles.astro';
+import FeatureProcess from '../components/FeatureProcess.astro';
+---
+
+<Layout title="Flux - Retratos Profesionales con IA">
+	<main>
+		<Hero />
+		<FeatureControl />
+		<FeatureVersatility />
+		<FeatureRealism />
+		<FeatureStyles />
+		<FeatureProcess />
+		<Gallery />
+		<Urgency />
+		<Pricing />
+		<Testimonials />
+		<ROICalculator />
+		<Quiz />
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		/* padding: 1rem; */ /* Remove padding to allow hero to be full-width */
+		width: 100%;
+		max-width: 100%;
+		color: white;
+		font-size: 20px;
+		line-height: 1.6;
+	}
+</style>

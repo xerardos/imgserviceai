@@ -1,0 +1,11 @@
+# Task ID: 13
+# Title: Optimizar rendimiento (Performance Tuning)
+# Status: done
+# Dependencies: None
+# Priority: high
+# Description: Mejorar la velocidad de carga de la página para alcanzar una puntuación de Lighthouse > 95. Esto incluye la optimización de imágenes y la minimización de assets.
+# Details:
+Revisar todas las imágenes y usar el componente <Image> de Astro si es posible para optimización automática. Analizar el CSS y JS para posibles mejoras. El objetivo es un First Contentful Paint < 1.8s.
+
+# Test Strategy:
+Usar las herramientas de desarrollador de Chrome (Lighthouse) para medir la puntuación de rendimiento antes y después de los cambios.

@@ -1,0 +1,11 @@
+# Task ID: 18
+# Title: Implementar Sección Feature 1: Control Creativo (GSAP)
+# Status: done
+# Dependencies: None
+# Priority: high
+# Description: Crear la sección de característica 'Control Creativo' con animación de scroll y parallax usando GSAP.
+# Details:
+
+
+# Test Strategy:
+

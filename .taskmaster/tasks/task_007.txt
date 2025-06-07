@@ -1,0 +1,11 @@
+# Task ID: 7
+# Title: Implementar slider Before/After interactivo
+# Status: done
+# Dependencies: 3
+# Priority: high
+# Description: Convertir la galería estática en una galería interactiva con un slider para comparar las imágenes de antes y después.
+# Details:
+Usar Surreal.js para manipular el DOM y crear un slider que se pueda arrastrar para revelar la imagen 'después' sobre la 'antes'. Aplicar esto a los elementos de la galería existente.
+
+# Test Strategy:
+Verificar que el slider funciona en todos los elementos de la galería, es suave y funciona en dispositivos táctiles.

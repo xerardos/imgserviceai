@@ -1,0 +1,11 @@
+# Task ID: 8
+# Title: Crear la calculadora de ROI
+# Status: done
+# Dependencies: None
+# Priority: medium
+# Description: Desarrollar un componente interactivo que calcule el ahorro de usar el servicio de IA en comparación con una sesión de fotos tradicional.
+# Details:
+Crear un componente 'ROICalculator.astro'. Incluir un campo de entrada para que el usuario introduzca el coste de una sesión de fotos. Calcular y mostrar dinámicamente el ahorro. Usar Surreal.js para la interactividad.
+
+# Test Strategy:
+Verificar que el cálculo es correcto y que la actualización del resultado es instantánea.
