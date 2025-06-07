@@ -1,0 +1,34 @@
+---
+import { languages } from '../i18n/ui';
+
+const { lang } = Astro.props;
+const { pathname } = Astro.url;
+
+const otherLang = lang === 'es' ? 'en' : 'es';
+// Replaces the current language slug with the other language slug
+// e.g., /es/about -> /en/about
+const otherPath = pathname.replace(`/${lang}`, `/${otherLang}`);
+---
+
+<div id="componente-languageswitcher">
+  <a href={otherPath} class="lang-switcher">
+    {languages[otherLang].substring(0, 2).toUpperCase()}
+  </a>
+</div>
+
+<style>
+  .lang-switcher {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid white;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+
+  .lang-switcher:hover {
+    background-color: white;
+    color: black;
+  }
+</style>

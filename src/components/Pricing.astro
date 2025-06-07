@@ -1,33 +1,40 @@
 ---
 // Pricing.astro
+import { useTranslations } from '../i18n/ui';
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const currencySymbol = lang === 'en' ? '$' : '€';
+
 const pricingTiers = [
   {
-    name: 'Starter',
-    price: '€97',
-    features: ['5 retratos', '2 estilos', 'Entrega en 48h'],
-    cta: 'Empezar Ahora',
+    name: t('pricing_starter_name'),
+    price: `${currencySymbol}97`,
+    features: t('pricing_starter_features').split(','),
+    cta: t('pricing_starter_cta'),
     isFeatured: false,
   },
   {
-    name: 'Creator',
-    price: '€197',
-    features: ['15 retratos', '5 estilos', 'Entrega en 24h', 'Soporte prioritario'],
-    cta: 'Elegir Creator',
+    name: t('pricing_creator_name'),
+    price: `${currencySymbol}197`,
+    features: t('pricing_creator_features').split(','),
+    cta: t('pricing_creator_cta'),
     isFeatured: true,
   },
   {
-    name: 'Influencer',
-    price: '€397',
-    features: ['30 retratos', '10 estilos', 'Entrega prioritaria', 'Revisiones ilimitadas'],
-    cta: 'Contactar',
+    name: t('pricing_influencer_name'),
+    price: `${currencySymbol}397`,
+    features: t('pricing_influencer_features').split(','),
+    cta: t('pricing_influencer_cta'),
     isFeatured: false,
   },
 ];
 ---
-
+<div id="componente-pricing">
 <section class="pricing-section" id="precios">
-  <h2>Paquetes a tu Medida</h2>
-  <p>Elige el plan que mejor se adapta a tus necesidades y empieza a crear hoy mismo.</p>
+  <h2>{t('pricing_title')}</h2>
+  <p>{t('pricing_subtitle')}</p>
   <div class="pricing-grid">
     {pricingTiers.map(tier => (
       <div class:list={["pricing-tier", { featured: tier.isFeatured }]}>
@@ -115,3 +122,4 @@ const pricingTiers = [
       transform: scale(1.05);
   }
 </style>
+</div>

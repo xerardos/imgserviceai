@@ -1,13 +1,16 @@
 ---
 // Urgency.astro
+import { useTranslations } from '../i18n/ui';
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
 ---
+<div id="componente-urgency">
 <section class="urgency-section">
   <div class="urgency-content">
-    <h3>¡Oferta por Tiempo Limitado!</h3>
-    <p>
-      Solo quedan <span class="spots-left">10</span> plazas disponibles con un 50% de descuento para los primeros 100 clientes.
-    </p>
-    <a href="#precios" class="cta-primary">¡Aprovechar Oferta!</a>
+    <h3>{t('urgency_title')}</h3>
+    <p set:html={t('urgency_description')} />
+    <a href="#precios" class="cta-primary">{t('urgency_cta')}</a>
   </div>
 </section>
 
@@ -66,3 +69,4 @@
         }, 15000); // Reduce one spot every 15 seconds
     });
 </script>
+</div>

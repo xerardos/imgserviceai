@@ -1,20 +1,24 @@
 ---
 // FeatureVersatility.astro
+import { useTranslations } from '../i18n/ui';
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
 const image = {
     src: 'https://images.unsplash.com/photo-1573496527892-904f897eb744?w=1080&q=80',
     alt: 'Modelo profesional sonriendo'
 };
 ---
+<div id="componente-featureversatility">
 <section class="feature-section alt feature-versatility">
   <div class="image-content">
     <img src={image.src} alt={image.alt} width="600" height="800" />
   </div>
   <div class="text-content">
-    <h2>Un Mes de Contenido en Un Día.</h2>
+    <h2>{t('feature_versatility_title')}</h2>
     <p>
-      Genera docenas de retratos únicos para cada una de tus plataformas. 
-      Consigue imágenes profesionales para LinkedIn, looks casuales para Instagram y headshots para tu portfolio, 
-      todo en una sola sesión.
+      {t('feature_versatility_description')}
     </p>
   </div>
 </section>
@@ -116,3 +120,4 @@ const image = {
     });
   });
 </script>
+</div>

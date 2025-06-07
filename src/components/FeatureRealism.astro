@@ -1,16 +1,21 @@
 ---
 // FeatureRealism.astro
+import { useTranslations } from '../i18n/ui';
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
 const image = {
     src: 'https://images.unsplash.com/photo-1509305717900-84f40e786d82?w=1080&q=80',
     alt: 'Primer plano de un rostro mostrando detalles de la piel'
 };
 ---
+<div id="componente-featurerealism">
 <section class="feature-section feature-realism">
   <div class="text-content">
-    <h2>Realismo que Engaña al Ojo.</h2>
+    <h2>{t('feature_realism_title')}</h2>
     <p>
-      Cada detalle cuenta. Texturas, iluminación y una calidad de imagen que supera la realidad. 
-      Nuestra IA está entrenada por fotógrafos profesionales para asegurar resultados impecables.
+      {t('feature_realism_description')}
     </p>
   </div>
   <div class="image-content">
@@ -101,3 +106,4 @@ const image = {
     });
   });
 </script>
+</div>

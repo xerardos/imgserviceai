@@ -1,69 +1,54 @@
-# Documentación de Producto (PDD) - Landing Page "Flux" IA Retratos
-# Versión 1.0 - Estado Actual a 07/06/2025
+# Documento de Requisitos del Producto (PRD): Landing Page de Flux
 
----
-## PARTE A: DESCRIPCIÓN DEL PRODUCTO IMPLEMENTADO
----
+## 1. Resumen y Visión General
 
-### 1. Visión General y Objetivos del Sitio Actual
+El proyecto consiste en el desarrollo y mantenimiento de una landing page para "Flux", un servicio o producto innovador. El sitio web debe ser moderno, atractivo y estar optimizado para la conversión. Está construido con Astro, lo que sugiere un enfoque en el rendimiento y el SEO. El sitio es multilingüe (español e inglés), lo que indica un alcance internacional.
 
-La landing page "Flux" es un portal especializado en servicios de generación y edición de retratos mediante inteligencia artificial. El sitio está diseñado para captar clientes (modelos, actores, influencers, creadores de contenido) que buscan imágenes profesionales de alta calidad con eficiencia, variedad y control.
+## 2. Objetivos del Proyecto
 
-**Objetivos Cumplidos por la Versión Actual:**
+*   **Presentar Flux:** Comunicar de manera clara y efectiva qué es Flux, sus características y beneficios.
+*   **Captura de Leads:** Animar a los visitantes a realizar una acción específica, como solicitar una demostración, registrarse o ponerse en contacto.
+*   **Educación del Usuario:** Proporcionar información detallada sobre el producto a través de diferentes secciones.
+*   **Generar Confianza:** Mostrar pruebas sociales como testimonios para construir credibilidad.
 
-*   **Captación de Clientes:** Presenta una oferta clara y profesional para atraer a la audiencia objetivo.
-*   **Comunicación de Valor:** Comunica eficazmente los beneficios de eficiencia, variedad, realismo y control.
-*   **Conversión:** Guía al usuario a través de un embudo de ventas visualmente impactante, desde la presentación de características hasta la tabla de precios y testimonios.
-*   **Posicionamiento:** Establece el servicio como una alternativa premium y moderna a la fotografía tradicional.
+## 3. Alcance y Características
 
-### 2. Arquitectura de Componentes de la Landing Page
+La landing page se compone de las siguientes secciones o componentes principales:
 
-La página principal (`index.astro`) está construida con una arquitectura modular basada en componentes de Astro. El orden y la función de los componentes implementados es el siguiente:
+*   **`Navbar`:** Navegación principal con enlaces a las diferentes secciones de la página y un posible CTA (Call to Action).
+*   **`LanguageSwitcher`:** Componente para cambiar entre los idiomas disponibles (español e inglés).
+*   **`Hero`:** La sección principal de bienvenida. Debe captar la atención del usuario con un titular potente, una breve descripción y un CTA claro.
+*   **`Features`:** Una serie de componentes que destacan las características clave del producto:
+    *   `FeatureControl`
+    *   `FeatureVersatility`
+    *   `FeatureRealism`
+    *   `FeatureStyles`
+    *   `FeatureProcess`
+*   **`Gallery`:** Una sección para mostrar visualmente el producto en acción, posiblemente con capturas de pantalla o ejemplos.
+*   **`Urgency`:** Un componente diseñado para crear un sentido de urgencia y motivar la acción inmediata.
+*   **`Pricing`:** Tabla o sección que detalla los diferentes planes y precios del servicio.
+*   **`Testimonials`:** Testimonios de clientes para generar confianza y prueba social.
+*   **`ROICalculator`:** Una herramienta interactiva para que los usuarios calculen el retorno de la inversión potencial al usar Flux.
+*   **`Quiz`:** Un cuestionario interactivo para atraer a los usuarios y posiblemente segmentarlos o guiarlos hacia la solución correcta.
+*   **`WhatsAppButton`:** Un botón flotante o fijo para facilitar el contacto directo a través de WhatsApp.
 
-1.  **`Hero.astro`**:
-    *   **Función:** Captura la atención inicial del usuario.
-    *   **Características:**
-        *   Presenta el titular principal: "Transforma tu imagen profesional en minutos, no en horas".
-        *   Muestra un carrusel de imágenes de retratos como fondo con un efecto de desvanecimiento.
-        *   Incluye dos CTAs principales ("Crear mi primer retrato IA", "Ver transformación gratis") que dirigen a la sección de precios.
-        *   Implementa un efecto de "luz" interactivo que sigue al cursor del ratón en dispositivos de escritorio.
+## 4. Requisitos Técnicos
 
-2.  **`FeatureControl.astro`**, **`FeatureVersatility.astro`**, **`FeatureRealism.astro`**, **`FeatureStyles.astro`**:
-    *   **Función:** Detallan la propuesta de valor del servicio a través de secciones de características específicas.
-    *   **Características:** Cada componente se enfoca en un beneficio clave (Control, Versatilidad, Realismo, Estilos), combinando texto descriptivo con elementos visuales.
+*   **Entorno:** Windows 11 con Git-bash como terminal, usa siempre rutas absolutas para llamar a las herramientas mcp y para comandos y siempre 1 solo slash en formato /
+*   **Framework:** Astro
+*   **Lenguajes:** TypeScript, JavaScript
+*   **Internacionalización (i18n):** Soporte para español (`es`) e inglés (`en`) utilizando archivos JSON. La lógica de enrutamiento y traducción está gestionada en `src/i18n/ui.ts` y las páginas se duplican en `src/pages/en` y `src/pages/es`.
+*   **Estilos:** No se especifica un framework de CSS, pero se asume CSS moderno o Tailwind CSS dado el ecosistema de Astro.
+*   **Despliegue:** El objetivo final es tener un sitio estático o renderizado en servidor (SSR) de alto rendimiento.
 
-3.  **`FeatureProcess.astro`**:
-    *   **Función:** Explica el proceso de trabajo de forma sencilla y visual.
-    *   **Características:** Muestra un flujo de 3 pasos (Sube, Elige, Recibe) para que el usuario entienda la simplicidad del servicio.
+## 5. Plan de Tareas de Alto Nivel
 
-4.  **`Gallery.astro`**:
-    *   **Función:** Proporciona pruebas visuales de la calidad del trabajo.
-    *   **Características:** Muestra una galería de retratos generados por IA, demostrando la calidad y variedad de los resultados.
-
-5.  **`Urgency.astro`**:
-    *   **Función:** Crea un sentido de escasez para incentivar la conversión.
-    *   **Características:** Incluye elementos de marketing de urgencia.
-
-6.  **`Pricing.astro`**:
-    *   **Función:** Presenta los diferentes paquetes de servicios.
-    *   **Características:** Muestra una tabla comparativa de 3 niveles (Básico, Pro, Premium) con sus respectivos precios, características y un CTA para cada uno.
-
-7.  **`Testimonials.astro`**:
-    *   **Función:** Genera confianza y prueba social.
-    *   **Características:** Muestra testimonios de clientes satisfechos.
-
-8.  **`ROICalculator.astro`**:
-    *   **Función:** Justifica la inversión de forma tangible.
-    *   **Características:** Herramienta interactiva que permite a los usuarios calcular el ahorro potencial al usar el servicio en comparación con una sesión de fotos tradicional.
-
-9.  **`Quiz.astro`**:
-    *   **Función:** Captura leads de forma interactiva y segmenta a la audiencia.
-    *   **Características:** Un cuestionario que guía al usuario para definir sus necesidades de imagen, funcionando como un formulario de contacto avanzado.
-
-### 3. Pila Tecnológica y Patrones de Implementación
-
-*   **Framework Principal:** **Astro.js**. Se utiliza para construir un sitio mayormente estático (MPA) con excelente rendimiento.
-*   **Componentización:** La lógica, estructura y estilos están encapsulados dentro de componentes `.astro`, siguiendo las mejores prácticas del framework.
-*   **Estilos:** Se utiliza **CSS estándar** con `scoped styles` dentro de los componentes para evitar colisiones de clases.
-*   **Interactividad:** La interactividad del lado del cliente (como en `Hero.astro` y `ROICalculator.astro`) se implementa con **JavaScript nativo (vanilla JS)**, ejecutado a través de los scripts de Astro (`<script>`). No se utiliza la librería `Surreal.js` propuesta en el PRD inicial.
-*   **Desarrollo:** El entorno de desarrollo se basa en **Windows 11 con Bash-Git shell** y se ejecuta con `npm run dev`.
+1.  **Configuración del Proyecto:** Inicializar el repositorio, configurar Astro y las dependencias. (Ya completado)
+2.  **Desarrollo del Layout Base:** Crear el `Layout.astro` principal que incluirá la estructura común, metadatos, y la importación de estilos globales.
+3.  **Implementación de la Internacionalización (i18n):** Configurar los archivos de traducción y el switcher de idioma.
+4.  **Desarrollo de Componentes:** Crear cada uno de los componentes de Astro de forma individual.
+5.  **Ensamblaje de las Páginas:** Construir las páginas de índice para cada idioma (`/en`, `/es`) importando y organizando los componentes.
+6.  **Estilos y Diseño:** Aplicar un diseño visual consistente y responsivo a todo el sitio.
+7.  **Optimización y Rendimiento:** Auditar el sitio con herramientas como Lighthouse y optimizar las imágenes, el CSS y el JavaScript.
+8.  **Pruebas:** Realizar pruebas funcionales (que los enlaces funcionen, que los componentes interactivos se comporten como se espera) y de visualización en diferentes dispositivos.
+9.  **Configuración del Despliegue:** Preparar la configuración para el despliegue en una plataforma como Vercel, Netlify o similar.

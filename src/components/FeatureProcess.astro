@@ -1,22 +1,28 @@
 ---
 // FeatureProcess.astro
+import { useTranslations } from '../i18n/ui';
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
 const steps = [
   {
-    name: '1. Sube tus Fotos',
-    description: 'El primer paso es el más importante. Necesitamos una buena selección de tus fotos para que la IA pueda aprender tus rasgos. Sube entre 10 y 20 imágenes claras, con buena iluminación y desde diferentes ángulos. Evita gafas de sol, sombreros o cualquier cosa que cubra tu rostro.',
+    name: t('process_step1_name'),
+    description: t('process_step1_description'),
   },
   {
-    name: '2. Elige tus Estilos',
-    description: 'Navega por nuestra galería de estilos y elige los que mejor se adapten a tu marca personal. Puedes combinar diferentes tipos de ropa, fondos y ambientes.',
+    name: t('process_step2_name'),
+    description: t('process_step2_description'),
   },
   {
-    name: '3. Recibe tus Retratos',
-    description: 'En 24-48 horas, recibirás un pack de retratos profesionales en alta resolución, listos para usar en todas tus plataformas.',
+    name: t('process_step3_name'),
+    description: t('process_step3_description'),
   }
 ];
 ---
+<div id="componente-featureprocess">
 <section class="process-section">
-  <h2>Un Proceso Sencillo</h2>
+  <h2>{t('feature_process_title')}</h2>
   <div class="process-accordion">
     {steps.map(step => (
       <div class="process-step">
@@ -115,3 +121,4 @@ const steps = [
         });
     });
 </script>
+</div>

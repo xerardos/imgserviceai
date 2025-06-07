@@ -1,19 +1,22 @@
 ---
 // FeatureControl.astro
 import { Image } from 'astro:assets';
+import { useTranslations } from '../i18n/ui';
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
 
 const image = {
     src: 'https://images.unsplash.com/photo-1518708909080-704599b19972?w=1080&q=80',
     alt: 'Modelo con maquillaje artístico y luz dramática'
 };
 ---
+<div id="componente-featurecontrol">
 <section class="feature-section feature-control">
   <div class="text-content">
-    <h2>Tu Visión, Nuestra IA.</h2>
+    <h2>{t('feature_control_title')}</h2>
     <p>
-      Controla cada detalle de tu imagen. Elige entre cientos de estilos, 
-      define la iluminación, perfecciona la pose y selecciona el vestuario. 
-      Tu director de arte personal es una inteligencia artificial.
+      {t('feature_control_description')}
     </p>
   </div>
   <div class="image-content">
@@ -103,3 +106,4 @@ const image = {
     });
   });
 </script>
+</div>

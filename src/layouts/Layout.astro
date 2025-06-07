@@ -1,6 +1,11 @@
 ---
 import { ViewTransitions } from 'astro:transitions';
 import WhatsAppButton from '../components/WhatsAppButton.astro';
+import Navbar from '../components/Navbar.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/ui';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 interface Props {
 	title: string;
@@ -10,11 +15,11 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang={lang}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<title>{title}</title>
+		<title>{t('site_title')}</title>
 
 		<!-- SEO Meta Tags -->
 		<meta name="description" content="Servicio de retratos profesionales generados por IA. Ahorra tiempo y dinero con retratos de alta calidad para modelos, actores, influencers y profesionales." />
@@ -64,11 +69,17 @@ const { title } = Astro.props;
 		<ViewTransitions />
 	</head>
 	<body>
+		<Navbar lang={lang} />
 		<slot />
 		<WhatsAppButton />
 	</body>
 </html>
 <style is:global>
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+	}
 	:root {
 		--accent: 136, 58, 234;
 		--accent-light: 224, 204, 250;
@@ -84,6 +95,7 @@ const { title } = Astro.props;
 		font-family: system-ui, sans-serif;
 		background: #13151a;
 		background-size: 224px;
+		scroll-behavior: smooth;
 	}
 	code {
 		font-family:

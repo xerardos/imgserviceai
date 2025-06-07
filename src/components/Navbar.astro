@@ -1,0 +1,166 @@
+---
+import LanguageSwitcher from './LanguageSwitcher.astro';
+import { useTranslations } from '../i18n/ui';
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<nav id="componente-navbar">
+  <div class="nav-container">
+    <div class="language-switcher-container">
+      <LanguageSwitcher lang={lang} />
+    </div>
+    <ul class="nav-links">
+      <li><a href="#features">{t('nav_features')}</a></li>
+      <li><a href="#process">{t('nav_process')}</a></li>
+      <li><a href="#gallery">{t('nav_gallery')}</a></li>
+      <li><a href="#pricing">{t('nav_pricing')}</a></li>
+      <li><a href="#testimonials">{t('nav_testimonials')}</a></li>
+    </ul>
+    <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span class="hamburger"></span>
+    </button>
+  </div>
+</nav>
+
+<style>
+  nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background-color: rgba(20, 20, 20, 0.7);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+  }
+
+  .nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 1.5rem;
+  }
+
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .nav-links a:hover {
+    color: #c4b5fd;
+  }
+
+  .language-switcher-container {
+    flex-shrink: 0;
+  }
+
+  .menu-toggle {
+    display: none; /* Oculto en desktop */
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+    padding: 10px;
+  }
+
+  .hamburger {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background-color: white;
+    position: relative;
+    transition: transform 0.3s ease;
+  }
+
+  .hamburger::before,
+  .hamburger::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    transition: transform 0.3s ease, top 0.3s ease;
+  }
+
+  .hamburger::before {
+    top: -8px;
+  }
+
+  .hamburger::after {
+    top: 8px;
+  }
+
+  .menu-toggle.is-active .hamburger {
+    transform: rotate(45deg);
+  }
+
+  .menu-toggle.is-active .hamburger::before {
+    top: 0;
+    transform: rotate(90deg);
+  }
+
+  .menu-toggle.is-active .hamburger::after {
+    top: 0;
+    transform: rotate(90deg);
+  }
+
+  @media (max-width: 768px) {
+    .menu-toggle {
+      display: block; /* Visible en móvil */
+    }
+
+    .nav-links {
+      display: none; /* Oculto por defecto en móvil */
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: rgba(20, 20, 20, 0.95);
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 0;
+      gap: 1.5rem;
+    }
+
+    .nav-links.is-active {
+      display: flex; /* Se muestra al hacer clic */
+    }
+
+    .nav-links a {
+      font-size: 1.2rem;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener('click', () => {
+        const isActive = menuToggle.classList.toggle('is-active');
+        navLinks.classList.toggle('is-active');
+        menuToggle.setAttribute('aria-expanded', isActive.toString());
+      });
+    }
+  });
+</script>

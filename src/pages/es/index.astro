@@ -1,0 +1,46 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/Hero.astro';
+import Gallery from '../../components/Gallery.astro';
+import Quiz from '../../components/Quiz.astro';
+import Pricing from '../../components/Pricing.astro';
+import Urgency from '../../components/Urgency.astro';
+import Testimonials from '../../components/Testimonials.astro';
+import FeatureControl from '../../components/FeatureControl.astro';
+import FeatureVersatility from '../../components/FeatureVersatility.astro';
+import FeatureRealism from '../../components/FeatureRealism.astro';
+import FeatureStyles from '../../components/FeatureStyles.astro';
+import FeatureProcess from '../../components/FeatureProcess.astro';
+import { getLangFromUrl, useTranslations } from '../../i18n/ui';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Layout title={t('site_title')}>
+	<main>
+		<Hero lang={lang} />
+		<div id="features"><FeatureControl lang={lang} /></div>
+		<FeatureVersatility lang={lang} />
+		<FeatureRealism lang={lang} />
+		<FeatureStyles lang={lang} />
+		<div id="process"><FeatureProcess lang={lang} /></div>
+		<div id="gallery"><Gallery lang={lang} /></div>
+		<Urgency lang={lang} />
+		<div id="pricing"><Pricing lang={lang} client:load /></div>
+		<div id="testimonials"><Testimonials lang={lang} /></div>
+		<div id="quiz"><Quiz lang={lang} client:load /></div>
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		/* padding: 1rem; */ /* Remove padding to allow hero to be full-width */
+		width: 100%;
+		max-width: 100%;
+		color: white;
+		font-size: 20px;
+		line-height: 1.6;
+	}
+</style>

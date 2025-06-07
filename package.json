@@ -1,7 +1,11 @@
 {
-  "name": "agreeable-astronaut",
+  "name": "fluxservice",
   "type": "module",
   "version": "0.0.1",
+  "engine": {
+    "node": ">=20.0.0",
+    "npm": ">=10.0.0"
+  },
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",

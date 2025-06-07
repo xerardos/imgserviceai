@@ -1,26 +1,31 @@
 ---
 // Testimonials.astro
+import { useTranslations } from '../i18n/ui';
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
 const testimonials = [
   {
-    quote: "¡Increíble! Obtuve un portfolio completo en días, algo que me habría llevado meses y miles de euros. La calidad es espectacular.",
-    author: "Ana, Modelo",
+    quote: t('testimonial1_quote'),
+    author: t('testimonial1_author'),
     avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80"
   },
   {
-    quote: "Como actor, necesito headshots constantemente. Este servicio me ha ahorrado una fortuna y me da la variedad que necesito para cada casting.",
-    author: "Carlos, Actor",
+    quote: t('testimonial2_quote'),
+    author: t('testimonial2_author'),
     avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80"
   },
   {
-    quote: "La privacidad era clave para mí. El proceso fue súper discreto y los resultados superaron mis expectativas. ¡Totalmente recomendado!",
-    author: "Elena, Creadora de Contenido",
+    quote: t('testimonial3_quote'),
+    author: t('testimonial3_author'),
     avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80"
   }
 ];
 ---
-
+<div id="componente-testimonials">
 <section class="testimonials-section">
-  <h2>Lo que dicen nuestros clientes</h2>
+  <h2>{t('testimonials_title')}</h2>
   <div class="testimonials-grid">
     {testimonials.map(testimonial => (
       <div class="testimonial-card">
@@ -82,3 +87,4 @@ const testimonials = [
     font-weight: 600;
   }
 </style>
+</div>

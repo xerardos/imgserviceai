@@ -7,8 +7,13 @@ const backgroundImages = [
   'https://images.unsplash.com/photo-1589386417686-0d34b5903d23?w=1080&q=80',
   'https://images.unsplash.com/photo-1556157382-97eda2d62296?w=1080&q=80'
 ];
+
+import { useTranslations } from '../i18n/ui';
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
 ---
-<section class="hero">
+<section class="hero" id="componente-hero">
   <div class="hero-background-carousel">
     {backgroundImages.map((img, index) => (
       <div class="bg-image" style={`background-image: url(${img}); animation-delay: ${index * 5}s;`}></div>
@@ -16,13 +21,13 @@ const backgroundImages = [
   </div>
   <div class="mouse-light"></div>
   <div class="hero-content">
-    <h1 class="headline">Transforma tu imagen profesional en minutos, no en horas</h1>
-    <p class="subheadline">IA especializada en retratos profesionales para creadores, modelos e influencers.</p>
+    <h1 class="headline">{t('hero_title')}</h1>
+    <p class="subheadline">{t('hero_subtitle')}</p>
     <div class="cta-buttons">
-      <a href="#precios" class="cta-primary">Crear mi primer retrato IA</a>
-      <a href="#precios" class="cta-secondary">Ver transformación gratis</a>
+      <a href="#precios" class="cta-primary">{t('hero_cta_primary')}</a>
+      <a href="#precios" class="cta-secondary">{t('hero_cta_secondary')}</a>
     </div>
-    <p class="social-proof">Más de 1000 creadores confían en nosotros</p>
+    <p class="social-proof">{t('hero_social_proof')}</p>
   </div>
 </section>
 

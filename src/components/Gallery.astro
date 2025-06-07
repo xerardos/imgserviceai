@@ -1,40 +1,55 @@
 ---
+import { useTranslations } from '../i18n/ui';
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
 const galleryItems = [
   {
-    category: 'Modelo',
+    category: t('gallery_category_model'),
     before_src: 'https://images.unsplash.com/photo-1542513217-0b0eedf7005d?w=800&q=80',
     after_src: 'https://images.unsplash.com/photo-1542513217-0b0eedf7005d?w=800&q=80',
   },
   {
-    category: 'Profesional',
+    category: t('gallery_category_professional'),
     before_src: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&q=80',
     after_src: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&q=80',
   },
   {
-    category: 'Influencer',
+    category: t('gallery_category_influencer'),
     before_src: 'https://images.unsplash.com/photo-1571513722275-4b41940f54b8?w=800&q=80',
     after_src: 'https://images.unsplash.com/photo-1571513722275-4b41940f54b8?w=800&q=80',
   },
     {
-    category: 'Actor',
+    category: t('gallery_category_actor'),
     before_src: 'https://images.unsplash.com/photo-1600878459138-e1123b37cb30?w=800&q=80',
     after_src: 'https://images.unsplash.com/photo-1600878459138-e1123b37cb30?w=800&q=80',
   },
   {
-    category: 'Modelo',
+    category: t('gallery_category_model'),
     before_src: 'https://images.unsplash.com/photo-1528120369764-0423708119ae?w=800&q=80',
     after_src: 'https://images.unsplash.com/photo-1528120369764-0423708119ae?w=800&q=80',
   },
   {
-    category: 'Profesional',
+    category: t('gallery_category_professional'),
     before_src: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80',
     after_src: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80',
+  },
+  {
+    category: t('gallery_category_actor'),
+    before_src: 'https://images.unsplash.com/photo-1675355152054-d601f3007258?w=800&q=80',
+    after_src: 'https://images.unsplash.com/photo-1675355152054-d601f3007258?w=800&q=80',
+  },
+  {
+    category: t('gallery_category_influencer'),
+    before_src: 'https://images.unsplash.com/photo-1543096222-72de739f7917?w=800&q=80',
+    after_src: 'https://images.unsplash.com/photo-1543096222-72de739f7917?w=800&q=80',
   }
 ];
 ---
-
+<div id="componente-gallery">
 <section class="gallery-section">
-  <h2>Galería de Transformaciones</h2>
+  <h2>{t('gallery_title')}</h2>
   <div class="gallery-grid">
     {galleryItems.map(item => (
       <div class="gallery-item" data-comparison-slider>
@@ -234,3 +249,4 @@ const galleryItems = [
     });
   });
 </script>
+</div>
