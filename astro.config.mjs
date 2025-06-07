@@ -20,7 +20,33 @@ export default defineConfig({
     routing: {
       prefixDefaultLocale: true
     }
-  }
+  },
+  // Vite configuration optimizada para CSS
+  vite: {
+    build: {
+      cssCodeSplit: false,  // ← AÑADIR: Evita problemas de CSS splitting
+      assetsInlineLimit: 0, // ← AÑADIR: Evita inline de assets para mejor debugging
+    },
+    css: {
+      devSourcemap: true,   // ← AÑADIR: Mejora debugging en desarrollo
+    },
+  },
+  
+  // Resto de configuración mantener igual...
+  image: {
+    domains: ['images.unsplash.com', 'developer.apple.com', 'play.google.com', 'get.microsoft.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
+    ],
+  },
+  
+  prefetch: {
+    prefetchAll: true,
+    defaultStrategy: 'viewport',
+  },
 });
 
 // Forcing a server reload to fix potential JSX runtime issues.
